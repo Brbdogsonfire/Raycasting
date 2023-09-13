@@ -75,7 +75,9 @@ class Raycasting:
             #draw walls
             # placed this variable here because it will not import this single thing
             SCALE = WIDTH // NUM_RAYS
-            pg.draw.rect(self.game.screen, 'blue', (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height))
+
+            color = [255 / (1 + depth ** 5 * 0.00002)] * 3
+            pg.draw.rect(self.game.screen, color, (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height))
 
 
             ray_angle += DELTA_ANGLE
